@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "90509078851",
+    "project_id": "the-bhangarwala",
+    "storage_bucket": "the-bhangarwala.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90509078851:android:0c80711292212aba297ff6",
+        "android_client_info": {
+          "package_name": "com.sweeka.bhangarwala.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "90509078851-k6pvfd1pkckfp976fjmbdf0ptfde3q8j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD04A44U1_LaWESI9VWwW9CeMtj7hVe5jE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "90509078851-k6pvfd1pkckfp976fjmbdf0ptfde3q8j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
