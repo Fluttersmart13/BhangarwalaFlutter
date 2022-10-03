@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_demo/logic/events/login_event.dart';
 import 'package:flutter_demo/logic/states/login_state.dart';
@@ -16,7 +18,13 @@ class LoginBloc extends Bloc<LoginEvent,LoginState>{
     });
 
     on<SubmittedEvent>((event, emit) => {
-      emit(LoadingState())
+      //emit(LoadingState()),
+      // Timer(Duration(seconds: 4), () {
+      //   print("Yeah, this line is printed after 3 seconds");
+      //   emit(ApiSuccessState());
+      // })
+
+    emit(ApiSuccessState())
     });
   }
 

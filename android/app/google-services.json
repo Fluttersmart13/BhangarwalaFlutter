@@ -7,12 +7,57 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:90509078851:android:cd02e8f28b4bdd96297ff6",
+        "android_client_info": {
+          "package_name": "com.sweeka.bhangarwala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "90509078851-2arfvrb1rhh70n9ibqte18tv1294rjb8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sweeka.bhangarwala",
+            "certificate_hash": "69325cd91a68f0a4c2ebd66b0a8d814c2c64f0b6"
+          }
+        },
+        {
+          "client_id": "90509078851-k6pvfd1pkckfp976fjmbdf0ptfde3q8j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD04A44U1_LaWESI9VWwW9CeMtj7hVe5jE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "90509078851-k6pvfd1pkckfp976fjmbdf0ptfde3q8j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:90509078851:android:0c80711292212aba297ff6",
         "android_client_info": {
           "package_name": "com.sweeka.bhangarwala.dev"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "90509078851-rene912netnjid1cvcvdmpvlp7s6uj1s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sweeka.bhangarwala.dev",
+            "certificate_hash": "69325cd91a68f0a4c2ebd66b0a8d814c2c64f0b6"
+          }
+        },
         {
           "client_id": "90509078851-k6pvfd1pkckfp976fjmbdf0ptfde3q8j.apps.googleusercontent.com",
           "client_type": 3

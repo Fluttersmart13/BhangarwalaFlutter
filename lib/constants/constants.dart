@@ -11,7 +11,7 @@ final orange = const Color(0xFFf15929);
 final bColor = const Color(0xFFf15929);
 final introColor1 = const Color(0xFFFFFFFF);
 const Color kLabel = Color(0xFF000000);
-final gray = const Color(0xFF9ca2ac);
+final gray = const Color(0xFF747474);
 final box_shadow = const Color(0xFFd8dbe0);
 
 

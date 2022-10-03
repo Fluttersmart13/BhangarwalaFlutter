@@ -11,4 +11,8 @@ class ErrorState extends LoginState{
   ErrorState(this.errorMessage);
 }
 
+class ApiSuccessState extends LoginState{}
+
+class ApiFailState extends LoginState{}
+
 

@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_demo/logic/bloc/internet_bloc.dart';
@@ -6,12 +7,21 @@ import 'package:flutter_demo/logic/cubit/internet_cubit.dart';
 import 'package:flutter_demo/logic/cubit/splash_screen_cubit.dart';
 import 'package:flutter_demo/logic/states/internet_state.dart';
 import 'package:flutter_demo/screen/grid_screen.dart';
+import 'package:flutter_demo/screen/home_screen.dart';
 import 'package:flutter_demo/screen/login_screen.dart';
+import 'package:flutter_demo/screen/sign_in_screen.dart';
+import 'package:flutter_demo/screen/signup_screen.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-Future<void> main() async {
-  runApp(MyApp());
+import 'logic/cubit/auth_cubit.dart';
+import 'logic/states/aith_state.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp1());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -110,7 +120,7 @@ class SplashScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) =>
                       BlocProvider(
                         create: (context) => LoginBloc(),
-                        child: GridClass(),
+                        child: LoginScreen(),
                       )),
                 );
                 Fluttertoast.showToast(
@@ -136,3 +146,35 @@ class SplashScreen extends StatelessWidget {
   }
 }
 
+class MyApp1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => AuthCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: BlocBuilder<AuthCubit, AuthState>(
+          buildWhen: (oldState, newState) {
+            return oldState is AuthInitialState;
+          },
+          builder: (context, state) {
+            // if(state is AuthLoggedInState) {
+            //   return BlocProvider(
+            //     create: (context) => LoginBloc(),
+            //     child: LoginScreen(),
+            //   );
+            // }
+            // else if(state is AuthLoggedOutState) {
+            //   return SignInScreen();
+            // }
+            // else {
+            //   return Scaffold();
+            // }
+
+            return SignUpScreen();
+          },
+        ),
+      ),
+    );
+  }
+}
