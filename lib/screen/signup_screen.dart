@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_demo/logic/bloc/login_bloc.dart';
+import 'package:flutter_demo/screen/product_list.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../widgets/already_have_an_account_acheck.dart';
@@ -12,10 +15,12 @@ import '../widgets/text_widgets.dart';
 import 'login_screen.dart';
 
 
-class SignUpScreen extends StatelessWidget{
+class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery
+        .of(context)
+        .size;
     TextEditingController _phone = new TextEditingController();
     TextEditingController _password = new TextEditingController();
     return Scaffold(
@@ -62,7 +67,10 @@ class SignUpScreen extends StatelessWidget{
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return LoginScreen();
+                        return BlocProvider(
+                          create: (context) => LoginBloc(),
+                          child: LoginScreen(),
+                        );
                       },
                     ),
                   );
@@ -74,7 +82,16 @@ class SignUpScreen extends StatelessWidget{
                 children: <Widget>[
                   SocalIcon(
                     iconSrc: "assets/icons/facebook.svg",
-                    press: () {},
+                    press: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return ProductListScreen();
+                          },
+                        ),
+                      );
+                    },
                   ),
                   SocalIcon(
                     iconSrc: "assets/icons/twitter.svg",
