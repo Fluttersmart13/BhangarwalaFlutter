@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_demo/constants/constants.dart';
+import 'package:flutter_demo/screen/sign_in_screen.dart';
 import 'package:flutter_demo/widgets/background_signup.dart';
 import 'package:flutter_svg/svg.dart';
 import '../logic/cubit/auth_cubit.dart';
@@ -20,67 +21,68 @@ class VerifyPhoneNumberScreen extends StatelessWidget {
     Size size = MediaQuery
         .of(context)
         .size;
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("Verify Phone Number"),
-      ),
-      body: Background(
-        child: SingleChildScrollView(
+    return BlocProvider(
+      create: (context) => AuthCubit(),
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text("Verify Phone Number"),
+        ),
+        body: Background(
+          child: SingleChildScrollView(
 
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AppLargeText(text: "LOGIN"),
+                SizedBox(height: size.height * 0.03),
+                SvgPicture.asset(
+                  "assets/icons/login.svg",
+                  height: size.height * 0.35,
+                ),
+                SizedBox(height: size.height * 0.03),
+                RoundedInputField(
+                  readOnly: false,
+                  hintText: "6-digit OTP",
+                  controller: otpController,
+                  onChanged: (value) {},
+                ),
 
-              AppLargeText(text: "LOGIN"),
-              SizedBox(height: size.height * 0.03),
-              SvgPicture.asset(
-                "assets/icons/login.svg",
-                height: size.height * 0.35,
-              ),
-              SizedBox(height: size.height * 0.03),
-              RoundedInputField(
-                hintText: "6-digit OTP",
-                controller: otpController,
-                onChanged: (value) {
-                },
-              ),
-
-              BlocConsumer<AuthCubit, AuthState>(
-                listener: (context, state) {
-                  if(state is AuthLoggedInState) {
-                    Navigator.popUntil(context, (route) => route.isFirst);
-                    Navigator.pushReplacement(context, CupertinoPageRoute(
-                        builder: (context) => HomeScreen()
-                    ));
-                  }
-                  else if(state is AuthErrorState) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          backgroundColor: Colors.red,
-                          content: Text(state.error),
-                          duration: Duration(milliseconds: 2000),
-                        )
+                BlocConsumer<AuthCubit, AuthState>(
+                  listener: (context, state) {
+                    if (state is AuthLoggedInState) {
+                      Navigator.popUntil(context, (route) => route.isFirst);
+                      Navigator.pushReplacement(context, CupertinoPageRoute(
+                          builder: (context) => SignInScreen()
+                      ));
+                    }
+                    else if (state is AuthErrorState) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: Colors.red,
+                            content: Text(state.error),
+                            duration: Duration(milliseconds: 2000),
+                          )
+                      );
+                    }
+                  },
+                  builder: (context, state) {
+                    if (state is AuthLoadingState) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                    return RoundedButton(
+                      text: "Verify",
+                      press: () {
+                        BlocProvider.of<AuthCubit>(context).verifyOTP(otpController.text);
+                      },
+                      color: color1,
                     );
-                  }
-
-                },
-                builder: (context, state) {
-                  if(state is AuthLoadingState) {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  return RoundedButton(
-                    text: "Verify",
-                    press: () {
-                      BlocProvider.of<AuthCubit>(context).verifyOTP(otpController.text);
-                    },
-                    color: color1,
-                  );
-                },
-              ),
-            ],
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

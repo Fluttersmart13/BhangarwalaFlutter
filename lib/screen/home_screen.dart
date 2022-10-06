@@ -19,7 +19,6 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Container(
           child: Center(
-
             child: BlocConsumer<AuthCubit, AuthState>(
               listener: (context, state) {
                 if(state is AuthLoggedOutState) {

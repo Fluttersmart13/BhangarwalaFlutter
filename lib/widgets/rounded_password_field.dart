@@ -6,9 +6,11 @@ import 'text_field_container.dart';
 class RoundedPasswordField extends StatelessWidget {
   final ValueChanged<String> onChanged;
   final TextEditingController controller;
+  final String text;
   const RoundedPasswordField({
     required this.onChanged,
     required this.controller,
+    required this.text,
   }) : super();
 
   @override
@@ -20,7 +22,7 @@ class RoundedPasswordField extends StatelessWidget {
         controller: controller,
         cursorColor: color1,
         decoration: InputDecoration(
-          hintText: "Password",
+          hintText: text,
           icon: Icon(
             Icons.lock,
             color: color1,

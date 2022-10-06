@@ -9,7 +9,7 @@ class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super( AuthInitialState() ) {
     User? currentUser = _auth.currentUser;
     if(currentUser != null) {
-      emit( AuthLoggedInState(currentUser) );
+      emit( AuthLoggedInState(currentUser));
     }
     else {
       emit( AuthLoggedOutState() );
@@ -25,7 +25,6 @@ class AuthCubit extends Cubit<AuthState> {
         emit( AuthCodeSentState() );
       },
       verificationCompleted: (phoneAuthCredential) {
-
         signInWithPhone(phoneAuthCredential);
       },
       verificationFailed: (error) {
@@ -43,8 +42,15 @@ class AuthCubit extends Cubit<AuthState> {
     signInWithPhone(credential);
   }
 
+  void TextChange(String phone) async{
+    if(phone.length < 10 || phone.length > 10){
+      emit(AuthErrorState("Invalid phone number"));
+    }else{
+      emit(AuthValidateState());
+    }
+  }
+
   void signInWithPhone(PhoneAuthCredential credential) async {
-    print("soniiii${credential.smsCode}");
     try {
       UserCredential userCredential = await _auth.signInWithCredential(credential);
       if(userCredential.user != null) {

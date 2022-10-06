@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_demo/logic/bloc/login_bloc.dart';
-import 'package:flutter_demo/screen/product_list.dart';
+import 'package:flutter_demo/logic/cubit/product_list_cubit.dart';
+import 'package:flutter_demo/repositories/product_list_repository.dart';
+import 'package:flutter_demo/screen/product_list_screen.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../widgets/already_have_an_account_acheck.dart';
 import '../widgets/background_signup.dart';
 import '../widgets/or_divider.dart';
 import '../widgets/rounded_button_wigets.dart';
 import '../widgets/rounded_input_field.dart';
-import '../widgets/rounded_password_field.dart';
 import '../widgets/social_icon.dart';
 import '../widgets/text_widgets.dart';
 import 'login_screen.dart';
@@ -38,6 +38,7 @@ class SignUpScreen extends StatelessWidget {
                 height: size.height * 0.35,
               ),
               RoundedInputField(
+                readOnly: true,
                 hintText: "Phone Number",
                 onChanged: (value) {},
                 controller: _phone,
@@ -87,7 +88,10 @@ class SignUpScreen extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return ProductListScreen();
+                            return BlocProvider(
+                              create: (context) => ProductListCubit(ProductListRepository()),
+                              child: ProductListScreen(),
+                            );
                           },
                         ),
                       );

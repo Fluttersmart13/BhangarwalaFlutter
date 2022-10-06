@@ -7,6 +7,7 @@ import 'package:flutter_demo/logic/cubit/auth_cubit.dart';
 import 'package:flutter_demo/logic/events/login_event.dart';
 import 'package:flutter_demo/logic/states/login_state.dart';
 import 'package:flutter_demo/screen/signup_screen.dart';
+import 'package:flutter_demo/screen/verify_phone_number.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../widgets/already_have_an_account_acheck.dart';
@@ -50,12 +51,14 @@ class LoginWidget extends StatelessWidget {
             RoundedInputField(
               hintText: "Your Email",
               controller: email,
+              readOnly: true,
               onChanged: (value) {
                 BlocProvider.of<LoginBloc>(context).add(
                     TextChangeEvent(email.text, password.text));
               },
             ),
             RoundedPasswordField(
+              text: "Password",
               controller: password,
               onChanged: (value) {
                 BlocProvider.of<LoginBloc>(context).add(
@@ -80,7 +83,7 @@ class LoginWidget extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return SignUpScreen();
+                        return VerifyPhoneNumberScreen();
                       },
                     ),
                   );

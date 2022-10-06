@@ -84,5 +84,14 @@ final DOCTOR_RECIEPT = "doctor_reciept";
 final SPECIAL_TESR = "special_test";
 //final WELCOME_TITLE = "";
 
+// Fluttertoast.showToast(
+// msg: 'This is toast notification',
+// toastLength: Toast.LENGTH_SHORT,
+// gravity: ToastGravity.BOTTOM,
+// timeInSecForIosWeb: 1,
+// backgroundColor: Colors.red,
+// textColor: Colors.yellow
+// );
+
 
 

@@ -6,20 +6,24 @@ import 'package:flutter_demo/logic/bloc/login_bloc.dart';
 import 'package:flutter_demo/logic/cubit/internet_cubit.dart';
 import 'package:flutter_demo/logic/cubit/splash_screen_cubit.dart';
 import 'package:flutter_demo/logic/states/internet_state.dart';
+import 'package:flutter_demo/repositories/product_list_repository.dart';
 import 'package:flutter_demo/screen/grid_screen.dart';
 import 'package:flutter_demo/screen/home_screen.dart';
+import 'package:flutter_demo/screen/intro_screen.dart';
 import 'package:flutter_demo/screen/login_screen.dart';
+import 'package:flutter_demo/screen/product_list_screen.dart';
 import 'package:flutter_demo/screen/sign_in_screen.dart';
 import 'package:flutter_demo/screen/signup_screen.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'logic/cubit/auth_cubit.dart';
+import 'logic/cubit/product_list_cubit.dart';
 import 'logic/states/aith_state.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp1());
+  runApp(MyApp());
 }
 
 
@@ -29,15 +33,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // return BlocProvider(
-    //   create: (context) => InternetBloc(),
-    //   child: const MaterialApp(
-    //     debugShowCheckedModeBanner: false,
-    //     title: 'Splash Screens',
-    //     home: SplashScreenBloc(),
-    //   ),
-    // );
-
     return BlocProvider(
       create: (context) => SplashScreenCubit(),
       child: const MaterialApp(
@@ -120,21 +115,22 @@ class SplashScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) =>
                       BlocProvider(
                         create: (context) => LoginBloc(),
-                        child: LoginScreen(),
+                        child: IntroScreen(),
                       )),
                 );
-                Fluttertoast.showToast(
-                    msg: 'This is toast notification',
-                    toastLength: Toast.LENGTH_SHORT,
-                    gravity: ToastGravity.BOTTOM,
-                    timeInSecForIosWeb: 1,
-                    backgroundColor: Colors.red,
-                    textColor: Colors.yellow
-                );
               }
-              // else if(state == SplashScreenState.Dashboard){
-              //
-              // }
+
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) {
+              //       return BlocProvider(
+              //         create: (context) => ProductListCubit(ProductListRepository()),
+              //         child: ProductListScreen(),
+              //       );
+              //     },
+              //   ),
+              // );
             },
             builder: (context, state) {
               return Text("Splash Screen");

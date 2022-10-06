@@ -8,7 +8,7 @@ class SimpleTextWidget extends StatelessWidget{
   final Color color;
   final FontWeight fontWeight;
 
-  SimpleTextWidget({required Key key, required this.title,
+  SimpleTextWidget({required Key? key, required this.title,
   required this.fontSize,
   required this.color,
   required this.fontWeight

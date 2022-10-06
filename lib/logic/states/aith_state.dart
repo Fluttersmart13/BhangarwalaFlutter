@@ -21,3 +21,5 @@ class AuthErrorState extends AuthState {
   final String error;
   AuthErrorState(this.error);
 }
+
+class AuthValidateState extends AuthState {}
