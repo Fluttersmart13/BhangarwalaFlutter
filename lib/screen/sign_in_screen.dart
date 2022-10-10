@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_demo/logic/bloc/login_bloc.dart';
+import 'package:flutter_demo/screen/login_screen.dart';
 import 'package:flutter_demo/screen/signup_screen.dart';
 import 'package:flutter_demo/screen/verify_phone_number.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -29,11 +31,10 @@ class SignInScreen extends StatelessWidget {
     Size size = MediaQuery
         .of(context)
         .size;
-    return BlocProvider(
-      create: (context) => AuthCubit(),
-      child: Scaffold(
-        body: Background(
-          child: SingleChildScrollView(child: Column(
+    return Scaffold(
+      body: Background(
+        child: SingleChildScrollView(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               AppLargeText(text: "Registration"),
@@ -43,12 +44,28 @@ class SignInScreen extends StatelessWidget {
               //   height: size.height * 0.35,
               // ),
               SizedBox(height: size.height * 0.03),
-              RoundedInputField(
-                hintText: "Enter Phone number",
-                controller: phoneController,
-                readOnly: readOnly,
-                onChanged: (value) {
+              BlocBuilder<AuthCubit, AuthState>(
+                builder: (context, state) {
 
+                  if(state is AuthLoggedInState){
+                    return RoundedInputField(
+                      hintText: "Enter Phone number",
+                      controller: phoneController,
+                      readOnly: false,
+                      onChanged: (value) {
+
+                      },
+                    );
+                  }else{
+                    return RoundedInputField(
+                      hintText: "Enter Phone number",
+                      controller: phoneController,
+                      readOnly: true,
+                      onChanged: (value) {
+
+                      },
+                    );
+                  }
                 },
               ),
               BlocBuilder<AuthCubit, AuthState>(
@@ -64,8 +81,7 @@ class SignInScreen extends StatelessWidget {
               ),
               BlocBuilder<AuthCubit, AuthState>(
                 builder: (context, state) {
-                  if(state is AuthLoggedInState){
-                    readOnly = true;
+                  if (state is AuthLoggedInState) {
                     return RoundedPasswordField(
                         text: "Password",
                         onChanged: (value) {
@@ -73,10 +89,9 @@ class SignInScreen extends StatelessWidget {
                         },
                         controller: passwordController
                     );
-                  }else {
+                  } else {
                     return Container();
                   }
-
                 },
               ),
               BlocBuilder<AuthCubit, AuthState>(
@@ -84,8 +99,7 @@ class SignInScreen extends StatelessWidget {
                   if (state is AuthLoggedInState) {
                     return RoundedPasswordField(
                         text: "Confirm Password",
-                        onChanged: (value) {
-                        },
+                        onChanged: (value) {},
                         controller: passwordController
                     );
                   } else {
@@ -126,8 +140,8 @@ class SignInScreen extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) {
                         return BlocProvider(
-                          create: (context) => AuthCubit(),
-                          child: SignUpScreen(),
+                          create: (context) => LoginBloc(),
+                          child: LoginScreen(),
                         );
                       },
                     ),
@@ -136,7 +150,6 @@ class SignInScreen extends StatelessWidget {
               ),
             ],
           ),),
-        ),
       ),
     );
   }

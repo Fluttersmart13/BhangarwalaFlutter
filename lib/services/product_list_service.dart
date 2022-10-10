@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 class ProductListService {
   Future<List<ProductModel>> fetchData() async {
     var map = new Map<String, dynamic>();
-    map['categories'] = 'papers';
+    map['categories'] = 'bottles';
     http.Response response = await http.post(Uri.parse('http://gravityclasses.co.in/bhangarwala/get_products.php'),body:map);
     if (response.statusCode == 200) {
       String responseData = response.body.toString();

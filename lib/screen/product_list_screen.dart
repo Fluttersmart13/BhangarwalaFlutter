@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_demo/constants/constants.dart';
 import 'package:flutter_demo/logic/cubit/product_list_cubit.dart';
 import 'package:flutter_demo/logic/states/product_list_state.dart';
+import 'package:flutter_demo/widgets/text_widgets.dart';
 class ProductListScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -21,16 +23,22 @@ class ProductListScreen extends StatelessWidget{
              itemBuilder: (BuildContext context, int index) {
                return InkWell(
                  onTap :(){
-                   // Navigator.of(context).push(MaterialPageRoute(
-                   //   builder: (routeContext) => TestListPage(),
-                   // ));
                  },
                  child: Card(
+                   color: color2,
                    child: ListTile(
-                     title: Text(state.data[index].itemName!!),
-                     subtitle: Text(state.data[index].categories.toString()),
-                     //trailing: CheckBoxWidget(value:state.data[index].completed),
-                     //trailing: Text(state.data[index].completed.toString()),
+                     title: SimpleTextWidget(title: state.data[index].itemName!!, fontSize: 24, color: color1, fontWeight: FontWeight.bold,),
+                     trailing: Container(
+                         width: 50,
+                         height: 50,
+                         decoration: BoxDecoration(
+                           borderRadius: BorderRadius.circular(25),
+                           color: color3
+                         ),
+                         child: Padding(
+                           padding: const EdgeInsets.all(8.0),
+                           child: Image.network(state.data[index].image.toString()),
+                         )),
 
                    ),
                  ),

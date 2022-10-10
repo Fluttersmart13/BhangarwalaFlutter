@@ -30,13 +30,17 @@ const Color kNotificationIcon = Color(0xFFF15B93);
 const Color kIconColor = Color(0xFFFFFFFF);
 const Color kGreen = Color(0xFFADD536);
 
-// const Color color1 = Color(0xFF7C24CE);
-// const Color color2 = Color(0xFFf2eafa);
+// const Color color1 = Color(0xff7c24ce);
+// const Color color2 = Color(0xFFF2EAFA);
 // const Color color3 = Color(0xFFFFFFFF);
+
+
+const Color text = Color(0xFF333333);
 
 const Color color1 = Color(0xFF138808);
 const Color color2 = Color(0xFFCBE2AA);
 const Color color3 = Color(0xffEEFEE8);
+const Color textColor = Color(0xFF747474);
 
 const Color color8 = Color(0xffEEFEE8);
 const Color color4= Color(0xFFCBE2AA);

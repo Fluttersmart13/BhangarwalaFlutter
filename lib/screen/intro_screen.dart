@@ -3,6 +3,7 @@ import 'package:flutter_demo/constants/constants.dart';
 import 'package:flutter_demo/screen/welcome_screen.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
+import '../constants/shared_preference.dart';
 import '../widgets/text_widgets.dart';
 
 class IntroScreen extends StatefulWidget{
@@ -95,7 +96,7 @@ class _IntroScreen extends State<IntroScreen>{
   }
 
   void goLoginPage(context){
-    //Auth.setIsIntroCheck("1");
+    Auth.setIsIntroCheck("1");
     // Navigator.of(context).pushAndRemoveUntil(
     //     MaterialPageRoute(builder: (context){
     //       return WelcomeScreen();
@@ -113,6 +114,8 @@ class _IntroScreen extends State<IntroScreen>{
       ),
     );
   }
+
+
 
   Widget introImage(String assetName) {
     //widget to show intro image

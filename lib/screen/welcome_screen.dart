@@ -7,6 +7,7 @@ import 'package:flutter_demo/screen/signup_screen.dart';
 import 'package:flutter_demo/screen/verify_phone_number.dart';
 
 import '../constants/constants.dart';
+import '../route/router_constants.dart';
 import '../widgets/background_signup.dart';
 import '../widgets/rounded_button_wigets.dart';
 import '../widgets/text_widgets.dart';
@@ -39,17 +40,7 @@ class WelcomeScreen extends StatelessWidget {
                 text: "LOGIN",
                 color: color1,
                 press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return BlocProvider(
-                          create: (context) => LoginBloc(),
-                          child: LoginScreen(),
-                        );
-                      },
-                    ),
-                  );
+                 Navigator.pushNamed(context, routeLogin);
                 },
               ),
               RoundedButton(
@@ -57,14 +48,7 @@ class WelcomeScreen extends StatelessWidget {
                 color: color4,
                 textColor: Colors.black,
                 press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return SignInScreen();
-                      },
-                    ),
-                  );
+                  Navigator.pushNamed(context, routeSignUp);
                 },
               ),
             ],
