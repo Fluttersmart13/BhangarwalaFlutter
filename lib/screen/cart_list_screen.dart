@@ -7,25 +7,34 @@ import '../widgets/app_bar.dart';
 class CartListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        children: [
-          ItemAppBar(),
-          Container(
-            height: MediaQuery.of(context).size.height,
-            padding: EdgeInsets.only(top: 10),
-            decoration: BoxDecoration(
-                color: color2,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(35),
-                    topRight: Radius.circular(35))),
-            child: Column(
-              children: [
-                CartItemSample(),
-              ],
-            ),
-          )
-        ],
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            ItemAppBar(),
+            Expanded(
+              flex: 9,
+              child: Container(
+                height: MediaQuery.of(context).size.height,
+                padding: EdgeInsets.only(top: 10),
+                decoration: BoxDecoration(
+                    color: color2,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(35),
+                        topRight: Radius.circular(35))),
+                child: ListView(
+                  children: [
+                    CartItemSample(),
+                    CartItemSample(),
+                    CartItemSample(),
+                    CartItemSample(),
+                    CartItemSample(),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -40,9 +49,11 @@ class CartListScreen extends StatelessWidget {
       child: Row(
         children: [
           Radio(activeColor:color1,value: "", groupValue: "", onChanged: (index) {}),
+          ///product image
           Container(height:70,width:70,
               margin: EdgeInsets.only(right: 15),
               child: Image.network("http://www.gravityclasses.co.in/bhangarwala/icons/news_paper.png")),
+          ///product title with prize
           Padding(padding: EdgeInsets.symmetric(vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +64,7 @@ class CartListScreen extends StatelessWidget {
             ],
           ),
           ),
-
+          ///delete button
           Padding(padding: EdgeInsets.symmetric(vertical: 5),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,

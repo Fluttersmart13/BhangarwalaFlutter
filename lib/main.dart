@@ -9,6 +9,7 @@ import 'package:flutter_demo/logic/cubit/splash_screen_cubit.dart';
 import 'package:flutter_demo/logic/states/internet_state.dart';
 import 'package:flutter_demo/repositories/product_list_repository.dart';
 import 'package:flutter_demo/route/router_constants.dart';
+import 'package:flutter_demo/screen/dashboard_screen.dart';
 import 'package:flutter_demo/screen/grid_screen.dart';
 import 'package:flutter_demo/screen/home_screen.dart';
 import 'package:flutter_demo/screen/intro_screen.dart';
@@ -60,13 +61,13 @@ class SplashScreenBloc extends StatelessWidget {
           child: BlocConsumer<InternetBloc, InternetState>(
               listener: (context, state) {
                 if (state is InternetLostState) {
-                  final snackbar = SnackBar(
-                    content: const Text('No Internet"'),
+                  const snackbar = SnackBar(
+                    content: Text('No Internet"'),
                   );
                   ScaffoldMessenger.of(context).showSnackBar(snackbar);
                 }
                 else {
-                  final snackbar = SnackBar(content: const Text('loadding'),);
+                  const snackbar = SnackBar(content: Text('loadding'),);
                   ScaffoldMessenger.of(context).showSnackBar(snackbar);
                 }
               },
@@ -99,7 +100,7 @@ class SplashScreen extends StatelessWidget {
           child: BlocConsumer<SplashScreenCubit, SplashScreenState>(
             listener: (context, state) {
               if(state == SplashScreenState.Login) {
-                Navigator.pushNamed(context, routeCartItem);
+                Navigator.pushNamed(context, routeCartList);
               }
             },
             builder: (context, state) {
@@ -107,12 +108,13 @@ class SplashScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
-                      height: 100,
-                      width: 100,
-                      child: Image(image:AssetImage("assets/images/logo.png"))),
-                  SizedBox(height: 20,),
-                  SimpleTextWidget(title: intro_title1, fontSize: 24, color: color1, fontWeight: FontWeight.bold,),
+                  // Container(
+                  //     height: 100,
+                  //     width: 100,
+                  //     child: Image(image:AssetImage("assets/images/logo.png"))),
+                  // SizedBox(height: 20,),
+                  // SimpleTextWidget(title: intro_title1, fontSize: 24, color: color1, fontWeight: FontWeight.bold,),
+
                 ],
               );
             },

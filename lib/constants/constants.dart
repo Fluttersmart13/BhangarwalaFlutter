@@ -42,6 +42,16 @@ const Color color2 = Color(0xFFCBE2AA);
 const Color color3 = Color(0xffEEFEE8);
 const Color textColor = Color(0xFF747474);
 
+// const Color color1 = Color(0xFFECC0D9);
+//  const Color color2 = Color(0xFFF5F5F5);
+//  const Color color3 = Color(0xffEEFEE8);
+
+
+
+ //const Color textColor = Color(0xFF747474);
+ const Color gredient1 = Color(0xFFD73992);
+ const Color gredient = Color(0xFFAD37E0);
+
 const Color color8 = Color(0xffEEFEE8);
 const Color color4= Color(0xFFCBE2AA);
 const Color color5= Color(0xFFA2CD48);
