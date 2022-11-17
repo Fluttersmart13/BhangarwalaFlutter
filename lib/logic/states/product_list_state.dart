@@ -13,3 +13,5 @@ class ErrorProductListState extends ProductListState{
   final String error;
   ErrorProductListState({required this.error});
 }
+
+class AlreadyAdded extends ProductListState{}

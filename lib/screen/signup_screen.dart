@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_demo/logic/bloc/login_bloc.dart';
-import 'package:flutter_demo/logic/cubit/product_list_cubit.dart';
-import 'package:flutter_demo/repositories/product_list_repository.dart';
-import 'package:flutter_demo/screen/product_list_screen.dart';
 import 'package:flutter_svg/svg.dart';
+
 import '../widgets/already_have_an_account_acheck.dart';
 import '../widgets/background_signup.dart';
 import '../widgets/or_divider.dart';
@@ -12,15 +8,11 @@ import '../widgets/rounded_button_wigets.dart';
 import '../widgets/rounded_input_field.dart';
 import '../widgets/social_icon.dart';
 import '../widgets/text_widgets.dart';
-import 'login_screen.dart';
-
 
 class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery
-        .of(context)
-        .size;
+    Size size = MediaQuery.of(context).size;
     TextEditingController _phone = new TextEditingController();
     TextEditingController _password = new TextEditingController();
     return Scaffold(
@@ -63,9 +55,7 @@ class SignUpScreen extends StatelessWidget {
               SizedBox(height: size.height * 0.03),
               AlreadyHaveAnAccountCheck(
                 login: false,
-                press: () {
-
-                },
+                press: () {},
               ),
               OrDivider(),
               Row(
@@ -73,19 +63,7 @@ class SignUpScreen extends StatelessWidget {
                 children: <Widget>[
                   SocalIcon(
                     iconSrc: "assets/icons/facebook.svg",
-                    press: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return BlocProvider(
-                              create: (context) => ProductListCubit(ProductListRepository()),
-                              child: ProductListScreen(),
-                            );
-                          },
-                        ),
-                      );
-                    },
+                    press: () {},
                   ),
                   SocalIcon(
                     iconSrc: "assets/icons/twitter.svg",
@@ -103,5 +81,4 @@ class SignUpScreen extends StatelessWidget {
       ),
     );
   }
-
 }

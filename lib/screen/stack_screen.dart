@@ -23,15 +23,15 @@ class _StackScreenState extends State<StackScreen> {
       body: SingleChildScrollView(
         child: Container(
           color: color2,
-          margin: new EdgeInsets.symmetric(horizontal: 15.0),
+          margin: const EdgeInsets.symmetric(horizontal: 15.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 60,
               ),
               Neumorphic(
-                margin: EdgeInsets.all(8),
+                margin: const EdgeInsets.all(8),
                 style: NeumorphicStyle(
                     depth: 2,
                     shadowLightColor: color3,
@@ -40,15 +40,15 @@ class _StackScreenState extends State<StackScreen> {
                     shape: NeumorphicShape.flat,
                     color: color2),
                 child: Container(
-                    margin: new EdgeInsets.symmetric(horizontal: 20.0),
+                    margin: const EdgeInsets.symmetric(horizontal: 20.0),
                     width: width,
                     height: 50,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(Icons.menu, color: color1),
+                        const Icon(Icons.menu, color: color1),
                         Row(
-                          children: [
+                          children: const [
                             Icon(Icons.search, color: color1),
                             Icon(Icons.more_vert, color: color1),
                           ],
@@ -56,13 +56,13 @@ class _StackScreenState extends State<StackScreen> {
                       ],
                     )),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               AppLargeText(text: "Service", color: color1,
                 size: 24,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Center(
@@ -94,7 +94,7 @@ class _StackScreenState extends State<StackScreen> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Align(
@@ -104,7 +104,7 @@ class _StackScreenState extends State<StackScreen> {
                     color: color1,
                     size: 24,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
@@ -113,7 +113,7 @@ class _StackScreenState extends State<StackScreen> {
                   Container(
                       height: 200,
                       width: 200,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage("assets/images/Ellipse1.png"),
                           fit: BoxFit.cover,
@@ -126,7 +126,7 @@ class _StackScreenState extends State<StackScreen> {
                         progressColor: color1,
                         backgroundColor: color2,
                       )),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Expanded(
@@ -139,17 +139,17 @@ class _StackScreenState extends State<StackScreen> {
                           color: color1,
                           size: 24
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Text(
+                        const Text(
                             "Lorem ipsum dolor sit amet,consectetur adipiscing elit.Etiam eu turpis molestie ,dictum est a,mat")
                       ],
                     ),
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               AppLargeText(
@@ -157,7 +157,7 @@ class _StackScreenState extends State<StackScreen> {
                 color: color1,
                 size: 24,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
 
               ),
@@ -172,7 +172,7 @@ class _StackScreenState extends State<StackScreen> {
                         children: [
                           Container(
                             width: MediaQuery.of(context).size.width * 0.70,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 image: DecorationImage(
                               image:
                                   AssetImage("assets/images/Rectangle29.png"),
@@ -196,7 +196,7 @@ class _StackScreenState extends State<StackScreen> {
                           //     ),
                           //   ),
                           // ),
-                          Positioned(
+                          const Positioned(
                               top: 150,
                               left: 70,
                               child: Text(
@@ -208,7 +208,7 @@ class _StackScreenState extends State<StackScreen> {
                       );
                     }),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Align(
@@ -218,11 +218,11 @@ class _StackScreenState extends State<StackScreen> {
                     color: color1,
                     size: 24,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
-                  margin: new EdgeInsets.only(left: 10.0),
+                  margin: const EdgeInsets.only(left: 10.0),
                   width: width,
                   height: 60,
                   child: Row(
@@ -238,9 +238,9 @@ class _StackScreenState extends State<StackScreen> {
                                       BorderRadius.circular(20)),
                                   shape: NeumorphicShape.flat,
                                   color: color2),
-                              child: Container(
+                              child: const SizedBox(
                                   height: 40, width: 40, child: Text(""))),
-                          SizedBox(
+                          const SizedBox(
                             width: 20,
                           ),
                           SimpleTextWidget(
@@ -261,21 +261,21 @@ class _StackScreenState extends State<StackScreen> {
                                       BorderRadius.circular(15)),
                                   shape: NeumorphicShape.flat,
                                   color: color2),
-                              child: Container(
+                              child: const SizedBox(
                                   height: 30,
                                   width: 30,
                                   child: Icon(
                                     Icons.keyboard_arrow_right,
                                     color: color1,
                                   ))),
-                          SizedBox(
+                          const SizedBox(
                             width: 20,
                           ),
                         ],
                       )
                     ],
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               AppLargeText(
@@ -283,19 +283,19 @@ class _StackScreenState extends State<StackScreen> {
                 color: color1,
                 size: 24,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               buildStack(),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               buildStack(),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               buildStack(),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Align(
@@ -305,7 +305,7 @@ class _StackScreenState extends State<StackScreen> {
                     color: color1,
                     size: 24,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               buildNeumorphicOffers(),
@@ -315,7 +315,7 @@ class _StackScreenState extends State<StackScreen> {
               Container(
                 width: width,
                 height: 100,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: color1,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(20),
@@ -333,7 +333,7 @@ class _StackScreenState extends State<StackScreen> {
   Container buildNeumorphicOffers() {
     return Container(
       height: 70,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           image: DecorationImage(
             image:
             AssetImage("assets/images/Rectangle170.png"),
@@ -341,7 +341,7 @@ class _StackScreenState extends State<StackScreen> {
           ),
           color: color2
       ),
-      margin: new EdgeInsets.only(left: 10.0),
+      margin: const EdgeInsets.only(left: 10.0),
       width: width,
       child: Padding(
         padding: const EdgeInsets.only(left: 30),
@@ -364,7 +364,7 @@ class _StackScreenState extends State<StackScreen> {
           child: Container(
             width: width,
             height: 120,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                   image:
                   AssetImage("assets/images/Rectangle42.png"),
@@ -385,7 +385,7 @@ class _StackScreenState extends State<StackScreen> {
                   Container(
                     height: 80,
                     width: 80,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         image: DecorationImage(
                       image: AssetImage("assets/images/Ellipse10.png"),
                       fit: BoxFit.cover,

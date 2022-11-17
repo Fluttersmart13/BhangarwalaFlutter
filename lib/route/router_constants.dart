@@ -1,9 +1,11 @@
 const String routeSplash = "/";
 const String routeLogin = "/login";
 const String routeIntro = "/intro";
+const String routeWelcome = "/welcome";
 const String routeProductList = "/product_list";
 const String routeSignUp = "/signup";
 const String routeDemo = "/neumorphism";
 const String routeDashboard = "/dashboard";
 const String routeCartItem = "/cartItem";
 const String routeCartList = "/cartList";
+const String routeRegisterdemo = "/register";

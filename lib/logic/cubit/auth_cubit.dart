@@ -6,29 +6,31 @@ import '../states/aith_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   String? _verificationId;
-  AuthCubit() : super( AuthInitialState() ) {
+
+  AuthCubit() : super(AuthInitialState()) {
     User? currentUser = _auth.currentUser;
-    if(currentUser != null) {
-      emit( AuthLoggedInState(currentUser));
-    }
-    else {
-      emit( AuthLoggedOutState() );
+    if (currentUser != null) {
+      print("userfound");
+      print(currentUser.phoneNumber);
+      emit(AuthLoggedInState(currentUser));
+    } else {
+      print("constnouser");
+      emit(AuthLoggedOutState());
     }
   }
-
   void sendOTP(String phoneNumber) async {
-    emit( AuthLoadingState() );
+    emit(AuthLoadingState());
     await _auth.verifyPhoneNumber(
       phoneNumber: phoneNumber,
       codeSent: (verificationId, forceResendingToken) {
         _verificationId = verificationId;
-        emit( AuthCodeSentState() );
+        emit(AuthCodeSentState());
       },
       verificationCompleted: (phoneAuthCredential) {
         signInWithPhone(phoneAuthCredential);
       },
       verificationFailed: (error) {
-        emit( AuthErrorState(error.message.toString()) );
+        emit(AuthErrorState(error.message.toString()));
       },
       codeAutoRetrievalTimeout: (verificationId) {
         _verificationId = verificationId;
@@ -37,32 +39,38 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   void verifyOTP(String otp) async {
-    emit( AuthLoadingState() );
-    PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: _verificationId!, smsCode: otp);
+    print(otp);
+    emit(AuthLoadingState());
+    PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        verificationId: _verificationId!, smsCode: otp);
     signInWithPhone(credential);
-  }
-
-  void TextChange(String phone) async{
-    if(phone.length < 10 || phone.length > 10){
-      emit(AuthErrorState("Invalid phone number"));
-    }else{
-      emit(AuthValidateState());
-    }
   }
 
   void signInWithPhone(PhoneAuthCredential credential) async {
     try {
-      UserCredential userCredential = await _auth.signInWithCredential(credential);
-      if(userCredential.user != null) {
-        emit( AuthLoggedInState(userCredential.user!) );
+      UserCredential userCredential =
+          await _auth.signInWithCredential(credential);
+      if (userCredential.user != null) {
+        emit(AuthLoggedInState(userCredential.user!));
+      } else {
+        print("usercredentialnotget");
       }
-    } on FirebaseAuthException catch(ex) {
-      emit( AuthErrorState(ex.message.toString()) );
+    } on FirebaseAuthException catch (ex) {
+      emit(AuthErrorState(ex.message.toString()));
+    }
+  }
+
+  void clickPasswordHideShow(bool statues) {
+    print("object$statues");
+    if (statues) {
+      emit(AuthPassWordClick(false));
+    } else {
+      emit(AuthPassWordClick(true));
     }
   }
 
   void logOut() async {
     await _auth.signOut();
-    emit( AuthLoggedOutState() );
+    emit(AuthLoggedOutState());
   }
 }

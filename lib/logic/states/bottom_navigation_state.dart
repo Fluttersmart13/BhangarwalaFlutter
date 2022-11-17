@@ -21,18 +21,17 @@ class PageLoading extends BottomNavigationState {
   String toString() => 'PageLoading';
 }
 
-class FirstPageLoaded extends BottomNavigationState {
-  final String text;
-
-
-  FirstPageLoaded({required this.text});
-
-  @override
-  String toString() => 'FirstPageLoaded with text: $text';
-}
+// class FirstPageLoaded extends BottomNavigationState {
+//   final String text;
+//
+//   FirstPageLoaded({@required this.text});
+//
+//   @override
+//   String toString() => 'FirstPageLoaded with text: $text';
+// }
 
 class HomePageLoaded extends BottomNavigationState {
-  final String data;
+  final CategoriesModel data;
 
   HomePageLoaded({required this.data});
 
@@ -41,13 +40,10 @@ class HomePageLoaded extends BottomNavigationState {
 }
 
 class ProfilePageLoaded extends BottomNavigationState {
-  //final User data;
-  final String data;
-
-
-  ProfilePageLoaded({required this.data});
-
-  @override
-  String toString() => 'SecondPageLoaded with number: $data';
+  // final User data;
+  //
+  // ProfilePageLoaded({@required this.data});
+  //
+  // @override
+  // String toString() => 'SecondPageLoaded with number: $data';
 }
-

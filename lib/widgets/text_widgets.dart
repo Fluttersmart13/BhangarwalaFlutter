@@ -2,80 +2,82 @@ import 'package:flutter/material.dart';
 
 import '../../constants/constants.dart';
 
-class SimpleTextWidget extends StatelessWidget{
+class SimpleTextWidget extends StatelessWidget {
   final String title;
   final double fontSize;
   final Color color;
   final FontWeight fontWeight;
 
-  SimpleTextWidget({required this.title,
-  required this.fontSize,
-  required this.color,
-  required this.fontWeight
-  }) : super();
+  SimpleTextWidget(
+      {required this.title,
+      required this.fontSize,
+      required this.color,
+      required this.fontWeight})
+      : super();
 
   @override
   Widget build(BuildContext context) {
-    return Text(title,style: TextStyle(
-      fontWeight: FontWeight.bold,
-      fontSize: fontSize,
-      color: color ?? koTextColor,
-      overflow: TextOverflow.ellipsis
-    ),
+    return Text(
+      title,
+      style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: fontSize,
+          color: color ?? koTextColor,
+          overflow: TextOverflow.ellipsis),
     );
   }
 }
 
-class AppLargeText extends StatelessWidget{
+class AppLargeText extends StatelessWidget {
   double size;
   final String text;
   final Color color;
 
-  AppLargeText({ this.size = 24,
-    required this.text,
-    this.color = color1
-  }):super();
+  AppLargeText({this.size = 24, required this.text, this.color = color1})
+      : super();
 
   @override
   Widget build(BuildContext context) {
-    return Text(text,
+    return Text(
+      text,
       style: TextStyle(
-          color: color,
-          fontSize: size,
-          fontWeight: FontWeight.bold
+        color: color,
+        fontSize: size,
+        fontWeight: FontWeight.bold,
       ),
     );
   }
-
 }
 
-class AppText extends StatelessWidget{
+class AppText extends StatelessWidget {
   double size;
   final String text;
   final Color color;
 
-  AppText({required Key key,
-    this.size = 16,
-    required this.text,
-    this.color = Colors.black54
-  }):super(key: key);
+  AppText(
+      {required Key key,
+      this.size = 16,
+      required this.text,
+      this.color = Colors.black54})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Text(text,
+    return Text(
+      text,
       style: TextStyle(
         color: color,
         fontSize: size,
       ),
     );
   }
-
 }
 
-class SizedText extends StatelessWidget{
+class SizedText extends StatelessWidget {
   final String text;
   final Color color;
-  const SizedText({required Key key,required this.text,required this.color}):super(key: key);
+  const SizedText({required Key key, required this.text, required this.color})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -83,12 +85,10 @@ class SizedText extends StatelessWidget{
     return Container(
       child: Column(
         children: [
-          Text(text,
-          style: TextStyle(
-            fontSize: 16,
-            color: colorPrimary,
-            fontWeight: FontWeight.w700
-          ),
+          Text(
+            text,
+            style: TextStyle(
+                fontSize: 16, color: colorPrimary, fontWeight: FontWeight.w700),
             maxLines: 1,
             softWrap: false,
             overflow: TextOverflow.clip,
@@ -96,19 +96,22 @@ class SizedText extends StatelessWidget{
           SizedBox(
             height: 2,
           ),
-          Row(children: [
-            for(int i = 0 ; i < textsize.width/5 ; i++)
-              i.isEven?Container(
-                width: 5,
-                color: kGreen,
-                height: 2,
-
-              ):Container(
-                width: 5,
-                color: kWhite,
-                height: 2,
-              )
-          ],)
+          Row(
+            children: [
+              for (int i = 0; i < textsize.width / 5; i++)
+                i.isEven
+                    ? Container(
+                        width: 5,
+                        color: kGreen,
+                        height: 2,
+                      )
+                    : Container(
+                        width: 5,
+                        color: kWhite,
+                        height: 2,
+                      )
+            ],
+          )
         ],
       ),
     );
@@ -116,14 +119,17 @@ class SizedText extends StatelessWidget{
 
   Size _textSize(String text) {
     final TextPainter textPainter = TextPainter(
-      text: TextSpan(text: text,
+      text: TextSpan(
+        text: text,
         style: TextStyle(
-        fontSize: 16,
-        color: color,
-        fontWeight: FontWeight.w700,),
+          fontSize: 16,
+          color: color,
+          fontWeight: FontWeight.w700,
+        ),
       ),
       maxLines: 1,
-      textDirection: TextDirection.ltr,)..layout(maxWidth: double.infinity,minWidth: 0);
+      textDirection: TextDirection.ltr,
+    )..layout(maxWidth: double.infinity, minWidth: 0);
 
     return textPainter.size;
   }

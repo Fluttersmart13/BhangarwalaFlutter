@@ -22,4 +22,9 @@ class AuthErrorState extends AuthState {
   AuthErrorState(this.error);
 }
 
+class AuthPassWordClick extends AuthState {
+  final bool error;
+  AuthPassWordClick(this.error);
+}
+
 class AuthValidateState extends AuthState {}
