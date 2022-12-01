@@ -57,7 +57,7 @@ class ProductListScreen extends StatelessWidget {
                           color: color1,
                         ));
                       } else if (state is ErrorProductListState) {
-                        return Text(state.error);
+                        return Center(child: Text(state.error));
                       } else if (state is LoadedProductListState) {
                         return StreamBuilder(
                             initialData: state.data,

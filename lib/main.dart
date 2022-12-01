@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => SplashScreenCubit(),
-      child: MaterialApp(
+      child: const MaterialApp(
         // theme: ThemeData(
         //   brightness: Brightness.dark,
         //   primaryColor: Colors.lightBlue[800],
@@ -94,19 +94,19 @@ class SplashScreen extends StatelessWidget {
         child: Center(
           child: BlocConsumer<SplashScreenCubit, SplashScreenState>(
             listener: (context, state) {
-              // if (state == SplashScreenState.Welcome) {
-              //   Navigator.pushNamed(context, routeWelcome);
-              // } else if (state == SplashScreenState.Intro) {
-              //   Navigator.pushNamed(context, routeIntro);
-              // }
-
-              Navigator.pushNamed(context, routeRegisterdemo);
+              if (state == SplashScreenState.Welcome) {
+                Navigator.pushNamed(context, routeWelcome);
+              } else if (state == SplashScreenState.Intro) {
+                Navigator.pushNamed(context, routeIntro);
+              } else if (state == SplashScreenState.Dashboard) {
+                Navigator.pushNamed(context, routeDashboard);
+              }
             },
             builder: (context, state) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
+                children: const [
                   // Container(
                   //     height: 100,
                   //     width: 100,

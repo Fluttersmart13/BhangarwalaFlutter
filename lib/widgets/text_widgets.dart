@@ -41,10 +41,10 @@ class AppLargeText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        color: color,
-        fontSize: size,
-        fontWeight: FontWeight.bold,
-      ),
+          color: color,
+          fontSize: size,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Georgia'),
     );
   }
 }

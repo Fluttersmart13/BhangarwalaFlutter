@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 
 //colour
 const kPrimaryColor = Color(0xFF3fbbc0);
@@ -13,7 +13,6 @@ final introColor1 = const Color(0xFFFFFFFF);
 const Color kLabel = Color(0xFF000000);
 final gray = const Color(0xFF747474);
 final box_shadow = const Color(0xFFd8dbe0);
-
 
 const Color koZoneGrey = Color(0xFF747474);
 const Color koZoneOrange = Color(0xFFec6608);
@@ -34,7 +33,6 @@ const Color kGreen = Color(0xFFADD536);
 // const Color color2 = Color(0xFFF2EAFA);
 // const Color color3 = Color(0xFFFFFFFF);
 
-
 const Color text = Color(0xFF333333);
 
 const Color color1 = Color(0xFF138808);
@@ -46,17 +44,15 @@ const Color textColor = Color(0xFF747474);
 //  const Color color2 = Color(0xFFF5F5F5);
 //  const Color color3 = Color(0xffEEFEE8);
 
-
-
- //const Color textColor = Color(0xFF747474);
- const Color gredient1 = Color(0xFFD73992);
- const Color gredient = Color(0xFFAD37E0);
+//const Color textColor = Color(0xFF747474);
+const Color gredient1 = Color(0xFFD73992);
+const Color gredient = Color(0xFFAD37E0);
 
 const Color color8 = Color(0xffEEFEE8);
-const Color color4= Color(0xFFCBE2AA);
-const Color color5= Color(0xFFA2CD48);
-const Color color6= Color(0xFF79A739);
-const Color color7= Color(0xFF4D7435);
+const Color color4 = Color(0xFFCBE2AA);
+const Color color5 = Color(0xFFA2CD48);
+const Color color6 = Color(0xFF79A739);
+const Color color7 = Color(0xFF4D7435);
 //
 // const Color color1 = Color(0xFF138808);
 // const Color color2 = Color(0xFFf2eafa);
@@ -88,9 +84,9 @@ const String intro_title2 = "One Click User Friendly App";
 const String intro_title3 = "Let's Recycle The Waste";
 
 const String intro_description1 = "Kuch Bhi, Kabhi Bhi, Kahin Bhi";
-const String intro_description2 = "Just Select The Item You Want To sale And Book The Bhangarwala";
+const String intro_description2 =
+    "Just Select The Item You Want To sale And Book The Bhangarwala";
 const String intro_description3 = "Reuse, Recyle And Regenerate";
-
 
 //category constant in project
 final BOOLD_TEST = "blood_test";
@@ -107,5 +103,13 @@ final SPECIAL_TESR = "special_test";
 // textColor: Colors.yellow
 // );
 
-
-
+callToastMethod(String toastMessage) {
+  Fluttertoast.showToast(
+      msg: toastMessage,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 3,
+      backgroundColor: gray,
+      textColor: Colors.white,
+      fontSize: 16.0);
+}

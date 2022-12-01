@@ -11,6 +11,7 @@ import 'package:flutter_demo/screen/login_screen.dart';
 import 'package:flutter_demo/screen/sign_in_screen.dart';
 import 'package:flutter_demo/screen/stack_screen.dart';
 
+import '../logic/cubit/internet_cubit.dart';
 import '../logic/cubit/product_list_cubit.dart';
 import '../main.dart';
 import '../repositories/product_list_repository.dart';
@@ -66,8 +67,13 @@ class Routes {
         );
       case routeProductList:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => ProductListCubit(ProductListRepository()),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => ProductListCubit(ProductListRepository()),
+              ),
+              BlocProvider(create: (context) => InternetCubit()),
+            ],
             child: ProductListScreen(category: settings.arguments.toString()),
           ),
         );
