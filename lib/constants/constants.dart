@@ -33,7 +33,10 @@ const Color kGreen = Color(0xFFADD536);
 // const Color color2 = Color(0xFFF2EAFA);
 // const Color color3 = Color(0xFFFFFFFF);
 
-const Color text = Color(0xFF333333);
+const Color TEXT_LABEL = Color(0xFF111111);
+const Color TEXT_SUB_LABEL = Color(0xFF111111);
+const Color TEXT_DESCRIPTION = Colors.black;
+const Color TEXT_ICON_TAG = Color(0xFF4f4f4f);
 
 const Color color1 = Color(0xFF138808);
 const Color color2 = Color(0xFFCBE2AA);
@@ -69,6 +72,11 @@ const double kSizedBoxWidth = 10;
 const double kFontSize = 14;
 const double kPaddingAll = 25;
 
+const double FONTSIZE_TITLE = 16;
+const double FONTSIZE_SUB_TITLE = 14;
+const double FONTSIZE_SUB_DESCRIPTION = 14;
+const double FONTSIZE_UNUSE = 12;
+
 //base url
 //String BASE_URL = "https://api.covid19api.com/summary";
 String BASE_URL = "http://gravityclasses.co.in/bhangarwala/get_products.php";
@@ -93,15 +101,6 @@ final BOOLD_TEST = "blood_test";
 final DOCTOR_RECIEPT = "doctor_reciept";
 final SPECIAL_TESR = "special_test";
 //final WELCOME_TITLE = "";
-
-// Fluttertoast.showToast(
-// msg: 'This is toast notification',
-// toastLength: Toast.LENGTH_SHORT,
-// gravity: ToastGravity.BOTTOM,
-// timeInSecForIosWeb: 1,
-// backgroundColor: Colors.red,
-// textColor: Colors.yellow
-// );
 
 callToastMethod(String toastMessage) {
   Fluttertoast.showToast(

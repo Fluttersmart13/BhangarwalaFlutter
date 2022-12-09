@@ -10,6 +10,7 @@ import 'package:flutter_demo/widgets/text_widgets.dart';
 class CartItemScreen extends StatelessWidget {
   const CartItemScreen({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,15 +51,15 @@ class CartItemScreen extends StatelessWidget {
                       children: [
                         /// product title
                         Padding(
-                          padding: const EdgeInsets.only(top: 50, bottom: 20),
+                          padding: const EdgeInsets.only(top: 50, bottom: 5),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               SimpleTextWidget(
                                   title: bloc.selecteProduct.itemname!,
-                                  fontSize: 24,
+                                  fontSize: 16,
                                   fontWeight: FontWeight.normal,
-                                  color: color1),
+                                  color: TEXT_LABEL),
                               // InkWell(
                               //   onTap: () {
                               //     bloc.removeFromCart(snapshot.data[0]);
@@ -70,6 +71,18 @@ class CartItemScreen extends StatelessWidget {
                               //   ),
                               // ),
                             ],
+                          ),
+                        ),
+
+                        ///description
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 5),
+                          child: Text(
+                            "A simple yet fully customizable rating bar for flutter which also include a rating bar indicator, supporting any fraction of rating.",
+                            style: TextStyle(
+                              fontSize: 12,
+                            ),
+                            textAlign: TextAlign.justify,
                           ),
                         ),
 
@@ -167,6 +180,99 @@ class CartItemScreen extends StatelessWidget {
                             ],
                           ),
                         ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 5, bottom: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              // RatingBar.builder(
+                              //   initialRating: 3,
+                              //   minRating: 1,
+                              //   direction: Axis.horizontal,
+                              //   allowHalfRating: true,
+                              //   itemCount: 5,
+                              //   itemSize: 20,
+                              //   itemPadding:
+                              //       EdgeInsets.symmetric(horizontal: 0.0),
+                              //   itemBuilder: (context, _) => Icon(
+                              //     Icons.star,
+                              //     size: 2,
+                              //     color: color1,
+                              //   ),
+                              //   onRatingUpdate: (rating) {
+                              //     print(rating);
+                              //   },
+                              // ),
+
+                              Container(
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 10),
+                                child: Text(
+                                    "${bloc.selecteProduct.price} ₹ / 2 kg"),
+                              ),
+                              Row(
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      bloc.decrementQuantity(
+                                          bloc.selecteProduct);
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          boxShadow: [
+                                            BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.5),
+                                                spreadRadius: 3,
+                                                blurRadius: 10,
+                                                offset: const Offset(0, 3))
+                                          ]),
+                                      child: const Icon(CupertinoIcons.minus),
+                                    ),
+                                  ),
+                                  StreamBuilder(
+                                      stream: bloc.getQuantityStream,
+                                      initialData: bloc.quantity,
+                                      builder: (context, quantitySnap) {
+                                        print(quantitySnap);
+                                        return Container(
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 10),
+                                          child:
+                                              Text("${quantitySnap.data} kg"),
+                                        );
+                                      }),
+                                  InkWell(
+                                    onTap: () {
+                                      bloc.incrementQuantity(
+                                          bloc.selecteProduct);
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          boxShadow: [
+                                            BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.5),
+                                                spreadRadius: 3,
+                                                blurRadius: 10,
+                                                offset: const Offset(0, 3))
+                                          ]),
+                                      child: const Icon(CupertinoIcons.add),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
 
                         ///Total
                         Padding(
@@ -193,18 +299,6 @@ class CartItemScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-
-                        ///description
-                        const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 12),
-                          child: Text(
-                            "A simple yet fully customizable rating bar for flutter which also include a rating bar indicator, supporting any fraction of rating.",
-                            style: TextStyle(
-                              fontSize: 12,
-                            ),
-                            textAlign: TextAlign.justify,
-                          ),
-                        )
                       ],
                     ),
                   ),

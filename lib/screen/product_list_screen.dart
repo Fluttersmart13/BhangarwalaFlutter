@@ -21,10 +21,7 @@ class ProductListScreen extends StatelessWidget {
             StreamBuilder(
                 stream: bloc.getStream,
                 builder: (context, snapshot) {
-                  int cartCount = 0;
-                  if (snapshot.hasData) {
-                    cartCount = snapshot.data.length;
-                  }
+                  int cartCount = bloc.cartList.length;
                   return ItemAppBar(
                     cartCount: cartCount,
                     onclick: () {
@@ -79,8 +76,8 @@ class ProductListScreen extends StatelessWidget {
                                       child: ListTile(
                                         title: SimpleTextWidget(
                                           title: state.data[index].itemname!,
-                                          fontSize: 24,
-                                          color: color1,
+                                          fontSize: 16,
+                                          color: TEXT_LABEL,
                                           fontWeight: FontWeight.bold,
                                         ),
                                         subtitle: SimpleTextWidget(

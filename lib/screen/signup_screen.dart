@@ -51,6 +51,7 @@ class SignUpScreen extends StatelessWidget {
                   //   ),
                   // );
                 },
+                button_key: '0',
               ),
               SizedBox(height: size.height * 0.03),
               AlreadyHaveAnAccountCheck(

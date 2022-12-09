@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../constants/constants.dart';
-
 class Background extends StatelessWidget {
   final Widget child;
   const Background({
@@ -18,38 +16,38 @@ class Background extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          Positioned(
-            top: 0,
-            left: 0,
-            // child: Image.asset(
-            //   "assets/images/signup_top.png",
-            //   width: size.width * 0.35,
-            // ),
-            child: Container(
-              width: 250,
-              height: 200,
-              decoration: const BoxDecoration(
-                  color: color2,
-                  borderRadius:
-                      BorderRadius.only(bottomRight: Radius.circular(250))),
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            // child: Image.asset(
-            //   "assets/images/main_bottom.png",
-            //   width: size.width * 0.25,
-            // ),
-            child: Container(
-              width: 100,
-              height: 100,
-              decoration: const BoxDecoration(
-                  color: color2,
-                  borderRadius:
-                      BorderRadius.only(topRight: Radius.circular(250))),
-            ),
-          ),
+          // Positioned(
+          //   top: 0,
+          //   left: 0,
+          //   // child: Image.asset(
+          //   //   "assets/images/signup_top.png",
+          //   //   width: size.width * 0.35,
+          //   // ),
+          //   child: Container(
+          //     width: 250,
+          //     height: 200,
+          //     decoration: const BoxDecoration(
+          //         color: color2,
+          //         borderRadius:
+          //             BorderRadius.only(bottomRight: Radius.circular(250))),
+          //   ),
+          // ),
+          // Positioned(
+          //   bottom: 0,
+          //   left: 0,
+          //   // child: Image.asset(
+          //   //   "assets/images/main_bottom.png",
+          //   //   width: size.width * 0.25,
+          //   // ),
+          //   child: Container(
+          //     width: 100,
+          //     height: 100,
+          //     decoration: const BoxDecoration(
+          //         color: color2,
+          //         borderRadius:
+          //             BorderRadius.only(topRight: Radius.circular(250))),
+          //   ),
+          // ),
           child,
         ],
       ),

@@ -23,7 +23,8 @@ class SimpleTextWidget extends StatelessWidget {
           fontWeight: FontWeight.bold,
           fontSize: fontSize,
           color: color ?? koTextColor,
-          overflow: TextOverflow.ellipsis),
+          overflow: TextOverflow.ellipsis,
+          fontFamily: 'Georgia'),
     );
   }
 }
@@ -38,13 +39,16 @@ class AppLargeText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: TextStyle(
-          color: color,
-          fontSize: size,
-          fontWeight: FontWeight.bold,
-          fontFamily: 'Georgia'),
+    return Center(
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+            color: color,
+            fontSize: size,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'inter'),
+      ),
     );
   }
 }

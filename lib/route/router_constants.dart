@@ -9,3 +9,5 @@ const String routeDashboard = "/dashboard";
 const String routeCartItem = "/cartItem";
 const String routeCartList = "/cartList";
 const String routeRegisterdemo = "/register";
+const String routeImage = "/uploadImage";
+const String routeAlertDialog = "/alertdialog";

@@ -6,6 +6,7 @@ import 'package:flutter_demo/route/router_constants.dart';
 import '../constants/constants.dart';
 import '../logic/cubit/auth_cubit.dart';
 import '../widgets/text_widgets.dart';
+import 'RegistrationScreenList.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -51,8 +52,14 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       InkWell(
                         onTap: () {
-                          Navigator.pushNamed(context, routeProductList,
-                              arguments: "papers");
+                          //Navigator.pushNamed(context, routeProductList, arguments: "papers");
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const RegistrationScreenList()),
+                          );
                         },
                         child: Container(
                           width: 100,

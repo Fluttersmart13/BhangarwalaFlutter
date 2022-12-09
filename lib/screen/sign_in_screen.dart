@@ -29,14 +29,16 @@ class SignInScreen extends StatelessWidget {
       body: Background(
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               BlocBuilder<AuthCubit, AuthState>(
                 builder: (context, state) {
                   if (state is AuthLoggedInState) {
                     return AppLargeText(text: "Registration");
                   } else {
-                    return AppLargeText(text: "Verify Mobile Number");
+                    return AppLargeText(
+                      text: "Verify Mobile Number",
+                      color: TEXT_LABEL,
+                    );
                   }
                 },
               ),
@@ -69,21 +71,25 @@ class SignInScreen extends StatelessWidget {
                 },
               ),
 
-              ///phone number widgets
+              ///error widgets
               BlocBuilder<AuthCubit, AuthState>(
                 builder: (context, state) {
                   if (state is AuthErrorState) {
-                    return const Text(
-                      "Invalid Phone Number",
-                      style: TextStyle(color: Colors.red),
+                    return Container(
+                      width: size.width * 0.88,
+                      child: const Text(
+                        "Invalid Phone Number",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(color: Colors.red),
+                      ),
                     );
                   } else {
                     return Container();
                   }
                 },
               ),
+              const SizedBox(height: 20),
 
-              ///error message
               BlocBuilder<AuthCubit, AuthState>(
                 builder: (context, state) {
                   if (state is AuthLoggedInState) {
@@ -142,16 +148,18 @@ class SignInScreen extends StatelessWidget {
                           color: color1,
                           text: "Sign Up",
                           press: () {},
+                          button_key: '0',
                         );
                       } else {
                         return RoundedButton(
                           color: color1,
-                          text: "Send notification",
+                          text: "Send OTP",
                           press: () {
                             String phoneNumber = "+91${phoneController.text}";
                             BlocProvider.of<AuthCubit>(context)
                                 .sendOTP(phoneNumber);
                           },
+                          button_key: '0',
                         );
                       }
                     },

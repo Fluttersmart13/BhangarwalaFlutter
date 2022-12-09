@@ -20,23 +20,26 @@ class RoundedInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFieldContainer(
-      child: TextField(
-        onChanged: onChanged,
-        controller: controller,
-        cursorColor: color1,
-        readOnly: readOnly,
-        keyboardType: TextInputType.number,
-        inputFormatters: <TextInputFormatter>[
-          FilteringTextInputFormatter.digitsOnly
-        ],
-        decoration: InputDecoration(
-          icon: Icon(
-            icon,
-            color: color1,
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.88,
+      child: TextFieldContainer(
+        child: TextField(
+          onChanged: onChanged,
+          controller: controller,
+          cursorColor: color1,
+          readOnly: readOnly,
+          keyboardType: TextInputType.number,
+          inputFormatters: <TextInputFormatter>[
+            FilteringTextInputFormatter.digitsOnly
+          ],
+          decoration: InputDecoration(
+            icon: Icon(
+              icon,
+              color: color1,
+            ),
+            hintText: hintText,
+            border: InputBorder.none,
           ),
-          hintText: hintText,
-          border: InputBorder.none,
         ),
       ),
     );

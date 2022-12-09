@@ -16,8 +16,10 @@ import '../logic/cubit/product_list_cubit.dart';
 import '../main.dart';
 import '../repositories/product_list_repository.dart';
 import '../screen/RegisterScreen.dart';
+import '../screen/RegistrationScreenList.dart';
 import '../screen/cart_screen.dart';
 import '../screen/product_list_screen.dart';
+import '../screen/upload_screen_image.dart';
 import '../screen/welcome_screen.dart';
 
 class Routes {
@@ -84,6 +86,16 @@ class Routes {
       case routeWelcome:
         return MaterialPageRoute(
           builder: (_) => WelcomeScreen(),
+        );
+
+      case routeImage:
+        return MaterialPageRoute(
+          builder: (_) => UploadImageScreen(),
+        );
+
+      case routeAlertDialog:
+        return MaterialPageRoute(
+          builder: (_) => RegistrationScreenList(),
         );
 
       default:

@@ -12,7 +12,7 @@ class Background extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: size.height,
       child: Stack(
@@ -33,13 +33,13 @@ class Background extends StatelessWidget {
             //   "assets/images/main_top.png",
             //   width: size.width * 0.3,
             // ),
-            child:Container(
+            child: Container(
               width: 250,
               height: 250,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   color: color2,
-                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(250))
-              ),
+                  borderRadius:
+                      BorderRadius.only(bottomRight: Radius.circular(250))),
             ),
           ),
           Positioned(
@@ -49,13 +49,13 @@ class Background extends StatelessWidget {
             //   "assets/images/main_top.png",
             //   width: size.width * 0.3,
             // ),
-            child:Container(
+            child: Container(
               width: 150,
               height: 150,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   color: color2,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(150))
-              ),
+                  borderRadius:
+                      BorderRadius.only(topLeft: Radius.circular(150))),
             ),
           ),
           // Positioned(

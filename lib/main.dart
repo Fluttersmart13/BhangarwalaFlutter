@@ -94,13 +94,14 @@ class SplashScreen extends StatelessWidget {
         child: Center(
           child: BlocConsumer<SplashScreenCubit, SplashScreenState>(
             listener: (context, state) {
-              if (state == SplashScreenState.Welcome) {
-                Navigator.pushNamed(context, routeWelcome);
-              } else if (state == SplashScreenState.Intro) {
-                Navigator.pushNamed(context, routeIntro);
-              } else if (state == SplashScreenState.Dashboard) {
-                Navigator.pushNamed(context, routeDashboard);
-              }
+              // if (state == SplashScreenState.Welcome) {
+              //   Navigator.pushNamed(context, routeWelcome);
+              // } else if (state == SplashScreenState.Intro) {
+              //   Navigator.pushNamed(context, routeIntro);
+              // } else if (state == SplashScreenState.Dashboard) {
+              //   Navigator.pushNamed(context, routeDashboard);
+              // }
+              Navigator.pushNamed(context, routeDashboard);
             },
             builder: (context, state) {
               return Column(

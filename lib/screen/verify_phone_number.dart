@@ -17,9 +17,7 @@ class VerifyPhoneNumberScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery
-        .of(context)
-        .size;
+    Size size = MediaQuery.of(context).size;
     return BlocProvider(
       create: (context) => AuthCubit(),
       child: Scaffold(
@@ -30,9 +28,9 @@ class VerifyPhoneNumberScreen extends StatelessWidget {
               children: [
                 BlocBuilder<AuthCubit, AuthState>(
                   builder: (context, state) {
-                    if(state is AuthLoggedInState){
+                    if (state is AuthLoggedInState) {
                       return AppLargeText(text: "LOGIN");
-                    }else{
+                    } else {
                       return AppLargeText(text: "Verify OTP");
                     }
                   },
@@ -78,6 +76,7 @@ class VerifyPhoneNumberScreen extends StatelessWidget {
                             .verifyOTP(otpController.text);
                       },
                       color: color1,
+                      button_key: '0',
                     );
                   },
                 ),

@@ -17,15 +17,15 @@ class WelcomeScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              AppLargeText(
-                text: WELCOME_TITLE,
-                color: color1,
-              ),
               SizedBox(height: size.height * 0.05),
               Image.asset(
                 "assets/images/logo.png",
                 height: size.height * 0.45,
                 width: size.width * 0.45,
+              ),
+              AppLargeText(
+                text: WELCOME_TITLE,
+                color: TEXT_LABEL,
               ),
               // SvgPicture.asset(
               //   "assets/icons/chat.svg",
@@ -34,18 +34,22 @@ class WelcomeScreen extends StatelessWidget {
               SizedBox(height: size.height * 0.05),
               RoundedButton(
                 text: "LOGIN",
-                color: color1,
+                color: Colors.white,
+                textColor: Colors.black,
                 press: () {
                   Navigator.pushNamed(context, routeLogin);
                 },
+                button_key: '1',
               ),
+              const SizedBox(height: 20),
               RoundedButton(
                 text: "SIGN UP",
-                color: color4,
-                textColor: Colors.black,
+                color: color1,
+                textColor: Colors.white,
                 press: () {
                   Navigator.pushNamed(context, routeSignUp);
                 },
+                button_key: '0',
               ),
             ],
           ),

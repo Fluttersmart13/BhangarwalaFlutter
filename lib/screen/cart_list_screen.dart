@@ -65,16 +65,16 @@ class CartListScreen extends StatelessWidget {
                                         ///radio section
                                         Row(
                                           children: [
-                                            Radio(
-                                                activeColor: color1,
-                                                value: "",
-                                                groupValue: "",
-                                                onChanged: (index) {}),
+                                            // Radio(
+                                            //     activeColor: color1,
+                                            //     value: "",
+                                            //     groupValue: "",
+                                            //     onChanged: (index) {}),
 
                                             ///product image
                                             Container(
-                                                height: 50,
-                                                width: 50,
+                                                height: 40,
+                                                width: 40,
                                                 margin: const EdgeInsets.only(
                                                     right: 15),
                                                 child: Image.network(snapshot
@@ -93,12 +93,12 @@ class CartListScreen extends StatelessWidget {
                                                         .spaceBetween,
                                                 children: [
                                                   SimpleTextWidget(
-                                                      title:
-                                                          "${snapshot.data[index].itemname.toString()}",
-                                                      fontSize: 24,
-                                                      color: color1,
-                                                      fontWeight:
-                                                          FontWeight.bold),
+                                                    title:
+                                                        "${snapshot.data[index].itemname.toString()}",
+                                                    fontSize: 16,
+                                                    color: TEXT_LABEL,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
                                                   SimpleTextWidget(
                                                       title:
                                                           "${snapshot.data[index].price} ₹ / kg",
@@ -131,21 +131,25 @@ class CartListScreen extends StatelessWidget {
                                             children: [
                                               InkWell(
                                                 onTap: () {
-                                                  bloc.removeFromCart(
-                                                      snapshot.data[index]);
+                                                  // AlertDialogBox(title: "")
+                                                  //     .simpleDialog(context);
+                                                  // bloc.removeFromCart(
+                                                  //     snapshot.data[index]);
                                                 },
                                                 child: const Icon(
                                                   Icons.delete,
-                                                  color: Colors.red,
+                                                  color: Colors.grey,
                                                   size: 30,
                                                 ),
                                               ),
+
+                                              ///Prize label
                                               SimpleTextWidget(
                                                   title:
                                                       "${int.parse(snapshot.data[index].quantity) * int.parse(snapshot.data[index].price)} ₹ ",
                                                   fontSize: 16,
-                                                  color: Colors.red,
-                                                  fontWeight: FontWeight.normal)
+                                                  color: color1,
+                                                  fontWeight: FontWeight.bold)
 
                                               // Row(
                                               //   children: [

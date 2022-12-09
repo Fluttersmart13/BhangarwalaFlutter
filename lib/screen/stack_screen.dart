@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
+
 import '../constants/constants.dart';
 import '../widgets/text_widgets.dart';
 
@@ -59,7 +58,9 @@ class _StackScreenState extends State<StackScreen> {
               const SizedBox(
                 height: 20,
               ),
-              AppLargeText(text: "Service", color: color1,
+              AppLargeText(
+                text: "Service",
+                color: color1,
                 size: 24,
               ),
               const SizedBox(
@@ -83,9 +84,12 @@ class _StackScreenState extends State<StackScreen> {
                               width: 200,
                               child: Stack(
                                 children: [
-                                  Positioned(child: Image.asset("assets/images/Rectangle145.png")),
                                   Positioned(
-                                      child: Image.asset("assets/images/Rectangle151.png")),
+                                      child: Image.asset(
+                                          "assets/images/Rectangle145.png")),
+                                  Positioned(
+                                      child: Image.asset(
+                                          "assets/images/Rectangle151.png")),
                                 ],
                               ),
                             ),
@@ -135,10 +139,7 @@ class _StackScreenState extends State<StackScreen> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         AppLargeText(
-                          text: "Lorem ipsum",
-                          color: color1,
-                          size: 24
-                        ),
+                            text: "Lorem ipsum", color: color1, size: 24),
                         const SizedBox(
                           height: 10,
                         ),
@@ -159,7 +160,6 @@ class _StackScreenState extends State<StackScreen> {
               ),
               const SizedBox(
                 height: 20,
-
               ),
               Container(
                 color: color2,
@@ -202,7 +202,8 @@ class _StackScreenState extends State<StackScreen> {
                               child: Text(
                                 "Lorem ipsum",
                                 style: TextStyle(
-                                    color: text, fontWeight: FontWeight.bold),
+                                    color: TEXT_LABEL,
+                                    fontWeight: FontWeight.bold),
                               )),
                         ],
                       );
@@ -335,12 +336,10 @@ class _StackScreenState extends State<StackScreen> {
       height: 70,
       decoration: const BoxDecoration(
           image: DecorationImage(
-            image:
-            AssetImage("assets/images/Rectangle170.png"),
+            image: AssetImage("assets/images/Rectangle170.png"),
             fit: BoxFit.cover,
           ),
-          color: color2
-      ),
+          color: color2),
       margin: const EdgeInsets.only(left: 10.0),
       width: width,
       child: Padding(
@@ -366,12 +365,10 @@ class _StackScreenState extends State<StackScreen> {
             height: 120,
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image:
-                  AssetImage("assets/images/Rectangle42.png"),
+                  image: AssetImage("assets/images/Rectangle42.png"),
                   fit: BoxFit.cover,
                 ),
-              color: color2
-            ),
+                color: color2),
             child: Padding(
               padding: const EdgeInsets.only(left: 50, right: 20),
               child: Row(
@@ -417,7 +414,6 @@ class _StackScreenState extends State<StackScreen> {
     );
   }
 }
-
 
 // class StackScreen extends StatefulWidget{
 //   @override
